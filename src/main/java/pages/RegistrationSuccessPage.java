@@ -1,6 +1,7 @@
 package pages;
 
 import driverfactory.Driver;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -35,7 +36,7 @@ public class RegistrationSuccessPage {
     }
 
     //*************************************** Assertions ******************************************************
-
+    @Step("userCreateAccountSuccessfully")
     public RegistrationSuccessPage userCreateAccountSuccessfully(){
 
         //fluentWait.until(ExpectedConditions.visibilityOfElementLocated(accountCreatedMsg));

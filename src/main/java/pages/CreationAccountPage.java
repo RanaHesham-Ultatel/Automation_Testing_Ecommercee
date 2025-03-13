@@ -1,6 +1,7 @@
 package pages;
 
 import driverfactory.Driver;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
@@ -53,7 +54,7 @@ public class CreationAccountPage {
 
 
     //*************************************** Assertions ******************************************************
-
+    @Step("checkthatTheUserIsNavigatedToCreationAccountPageSuccessfully")
     public CreationAccountPage checkthatTheUserIsNavigatedToCreationAccountPageSuccessfully(){
         Assert.assertTrue(driver.element().isDisplayed(enterAccountInfoLabel));
         return this;
@@ -61,6 +62,7 @@ public class CreationAccountPage {
 
     //*************************************** Actions ******************************************************
 
+    @Step("selectGenderRadioButton")
     public CreationAccountPage selectGenderRadioButton(String gender) {
         if (gender.equalsIgnoreCase("female")) {
             driver.element().click(femaleRadioButton);
@@ -69,114 +71,116 @@ public class CreationAccountPage {
         }
         return this;
     }
-
+    @Step("fillNameTextField")
     public CreationAccountPage fillNameTextField(String name){
         driver.element().fillTextField(nameTextField,name);
         return this;
     }
-
+    @Step("fillEmailTextField")
     public CreationAccountPage fillEmailTextField(String email){
 
         driver.element().fillTextField(emailTextField,email);
         return this;
     }
+    @Step("fillPasswordTextField")
     public CreationAccountPage fillPasswordTextField(String password){
         driver.element().fillTextField(passwordTextField,password);
         return this;
     }
-
+    @Step("selectFromDaysDropDown")
     public CreationAccountPage selectFromDaysDropDown (String day){
 
         driver.element().selectFromDropDownByVisibleText(daysDropDown,day);
         return this;
 
     }
-
+    @Step("electFromMonthDropDown")
     public CreationAccountPage selectFromMonthDropDown (String month){
         driver.element().selectFromDropDownByVisibleText(monthsDropDown,month);
         return this;
 
     }
-
+    @Step("selectFromYearDropDown")
     public CreationAccountPage selectFromYearDropDown (String year){
 
         driver.element().selectFromDropDownByVisibleText(yearsDropDown,year);
         return this;
 
     }
-
+    @Step("selectNewSletterCheckBo")
     public CreationAccountPage selectNewSletterCheckBox (){
         driver.element().click(newSletterCheckBox);
         return this;
     }
+    @Step("selectSpecialOffersCheckBox")
     public CreationAccountPage selectSpecialOffersCheckBox (){
 
         driver.element().click(specialOffersCheckBox);
         return this;
     }
-
+    @Step("fillFirstNameTextField")
     public CreationAccountPage fillFirstNameTextField (String firstName){
         driver.element().fillTextField(firstNameTextField,firstName);
         return this;
 
     }
-
+    @Step("fillLastNameTextField")
     public CreationAccountPage fillLastNameTextField (String lastName){
         driver.element().fillTextField(lastNameTextField,lastName);
         return this;
 
     }
-
+    @Step("fillCompanyTextField")
     public CreationAccountPage fillCompanyTextField (String company){
         driver.element().fillTextField(companyTextField,company);
         return this;
 
     }
-
+   @Step("fillAddressOneTextField")
     public CreationAccountPage fillAddressOneTextField (String address){
         driver.element().fillTextField(addressOneTextField,address);
         return this;
 
     }
-
+    @Step("fillAddressTwoTextField")
     public CreationAccountPage fillAddressTwoTextField (String address){
         driver.element().fillTextField(addressTwoTextField,address);
         return this;
 
     }
-
+    @Step("selectFromCountryDropDown")
     public CreationAccountPage selectFromCountryDropDown (String country){
 
         driver.element().selectFromDropDownByVisibleText(countriesDropDown,country);
         return this;
 
     }
-
+    @Step("fillStateTextField")
     public CreationAccountPage fillStateTextField (String state){
         driver.element().fillTextField(stateTextField,state);
         return this;
 
     }
-
+    @Step("fillCityTextField")
     public CreationAccountPage fillCityTextField (String city){
         driver.element().fillTextField(cityTextField,city);
         return this;
 
     }
-
+    @Step("fillZipCodeTextField")
     public CreationAccountPage fillZipCodeTextField (String zipCode){
         driver.element().fillTextField(zipCodeTextField,zipCode);
         return this;
 
     }
-
+    @Step("fillMobileNumberTextField")
     public CreationAccountPage fillMobileNumberTextField (String mobileNumber){
         driver.element().fillTextField(mobileNumberTextField,mobileNumber);
         return this;
 
 
     }
-
+    @Step("clickOnCreateAccountButton")
     public RegistrationSuccessPage clickOnCreateAccountButton (){
 
         driver.element().scrollToElementUsingJs(createAccountButton);
@@ -184,7 +188,7 @@ public class CreationAccountPage {
         return new RegistrationSuccessPage(driver);
 
     }
-
+    @Step("fillInCreationAccountForm")
     public RegistrationSuccessPage fillInCreationAccountForm(){
         selectGenderRadioButton("female");
         fillPasswordTextField("123456");

@@ -1,6 +1,7 @@
 package pages;
 
 import driverfactory.Driver;
+import io.qameta.allure.Step;
 import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -28,42 +29,42 @@ public class LoginSignUpPage {
 
     //*************************************** Assertions ******************************************************
 
-
+   @Step("checkThatUserIsNavigatedToLoginSignUpPage")
     public LoginSignUpPage checkThatUserIsNavigatedToLoginSignUpPage(){
         Assert.assertTrue(driver.browser().getCurrentUrl().contains("/login"));
         Assert.assertEquals(driver.element().getTxtOf(signUpFormTitle),"New User Signup!");
         return this;
     }
     //*************************************** Actions ******************************************************
+    @Step("fillInLoginEmail")
     public LoginSignUpPage fillInLoginEmail (String email){
 
         driver.element().fillTextField(loginEmail,email);
         return this;
     }
+    @Step("fillInLoginPassword")
     public LoginSignUpPage fillInLoginPassword (String password){
         driver.element().fillTextField(loginPassword,password);
         return this;
     }
-
+    @Step("clickOnLoginButton")
     public HomeNavigationBarPage clickOnLoginButton (){
-
         driver.element().click(loginButton);
         return new HomeNavigationBarPage(driver);
     }
 
+    @Step("fillInSignUpName")
     public LoginSignUpPage fillInSignUpName (String name){
-
         driver.element().fillTextField(signUpName,name);
         return this;
     }
+    @Step("fillInSignUpEmai")
     public LoginSignUpPage fillInSignUpEmail (String email){
-
         driver.element().fillTextField(signUpEmail,email);
         return this;
     }
-
+    @Step("clickOnSignUpButton")
     public CreationAccountPage clickOnSignUpButton (){
-
         driver.element().click(signUpButton);
         return new CreationAccountPage(driver);
     }
