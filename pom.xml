@@ -91,11 +91,13 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.4.0</version>
-                <configuration>
+
+                <configuration> <!-- hna b2olo y7ot al allure-results folder fi target -->
                     <systemPropertyVariables>
                         <allure.results.directory>${project.build.directory}/allure-results
                         </allure.results.directory>
                     </systemPropertyVariables>
+
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
