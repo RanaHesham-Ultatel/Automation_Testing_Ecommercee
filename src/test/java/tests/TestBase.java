@@ -22,11 +22,11 @@ public class TestBase {
     // set ,//get
 
     @BeforeClass
-    //@Parameters(value = {"browserName"})
-    public void setUp(/*@Optional("CHROME") String browserName*/) {
+    @Parameters(value = {"browserName"})
+    public void setUp(@Optional("CHROME") String browserName) {
 
         driver = new ThreadLocal<>();
-        driver.set(new Driver());
+        driver.set(new Driver(browserName));
         // driver.get().get().get("https://www.google.co.uk/");
         //driver.get().browser().navigateToUrl("https://www.automationexercise.com/");
 

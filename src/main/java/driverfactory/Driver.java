@@ -41,6 +41,26 @@ public class Driver {
 
     }
 
+
+    public Driver(String browserDriverType){
+
+        WebDriver undecoratedDriver = chooseBrowserDriver(browserDriverType).startDriver();
+        assert undecoratedDriver != null;
+
+
+        driver = new ThreadLocal<>();
+        driver.set(new EventFiringDecorator<>(org.openqa.selenium.WebDriver.class,
+                new WebDriverListeners(undecoratedDriver))
+                .decorate(undecoratedDriver));
+        System.out.println("Starting the execution via " + browserDriverType + " driver");
+
+        if (!webConfig.getProperty("BaseURL").isEmpty()){
+            driver.get().navigate().to(webConfig.getProperty("BaseURL"));
+        }
+
+
+    }
+
     private DriverAbstract chooseBrowserDriver(String browserDriverType){
 
         switch (browserDriverType){
