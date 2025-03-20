@@ -1,18 +1,18 @@
 package listeners.testng;
 
 import driverfactory.Driver;
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.WebDriver;
 import org.testng.IExecutionListener;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import utilities.ScreenShotManager;
+import utilities.properties.AllureReportHelper;
 
-import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
 
+import static utilities.properties.AllureReportHelper.cleanAllureReport;
 import static utilities.properties.PropertiesManager.initializeProperties;
+import static utilities.properties.PropertiesManager.reportConfig;
 
 public class TestNGListener implements ITestListener , IExecutionListener {
 
@@ -24,14 +24,21 @@ public class TestNGListener implements ITestListener , IExecutionListener {
 
         System.out.println("*********** Welcome To Selenium Framework *********** ");
         initializeProperties();
+        if (reportConfig.getProperty("CleanAllureReport").equalsIgnoreCase("true")){
+            AllureReportHelper.cleanAllureReport();
+        }
     }
     @Override
     public void onExecutionFinish() {
-        System.out.println("Generating Report .... ");
-        try {
-            Runtime.getRuntime().exec("generateAllureReport.bat");
-        } catch (IOException e) {
-         System.out.println("Unable to generate Allure Report , may be there's an issue in the batch file/commands");
+       // System.out.println("Generating Report .... ");
+        if(reportConfig.getProperty("OpenAllureReportAfterExecution").equalsIgnoreCase("true")) {
+            try {
+               System.out.println("Opening allure Report");
+                Runtime.getRuntime().exec("generateAllureReport.bat");
+
+            } catch (IOException e) {
+                System.out.println("Unable to generate Allure Report , may be there's an issue in the batch file/commands");
+            }
         }
         System.out.println("*********** End of Execution *********** ");
     }

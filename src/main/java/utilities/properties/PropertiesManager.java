@@ -8,17 +8,24 @@ import java.util.Properties;
 public class PropertiesManager {
 
     public static Properties webConfig;
+    public static Properties reportConfig;
 
     public PropertiesManager() {
 
     }
 
     public static void initializeProperties() {
-        FileInputStream fileInputStream = null;
+        FileInputStream webConfigFile = null;
+        FileInputStream reportConfigFile = null;
         try {
-            fileInputStream = new FileInputStream("src/main/resources/WebConfigurations.properties");
+            webConfigFile = new FileInputStream("src/main/resources/WebConfigurations.properties");
+            reportConfigFile = new FileInputStream("src/main/resources/Reporting.properties");
+
             webConfig = new Properties();
-            webConfig.load(fileInputStream);
+            webConfig.load(webConfigFile);
+
+            reportConfig = new Properties();
+            reportConfig.load(reportConfigFile);
 
         } catch (FileNotFoundException e) {
             System.out.println("File isn't readable");

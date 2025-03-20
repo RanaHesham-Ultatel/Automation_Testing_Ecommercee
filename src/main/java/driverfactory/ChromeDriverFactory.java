@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import static utilities.properties.PropertiesManager.webConfig;
+
 public class ChromeDriverFactory extends DriverAbstract{
 
 
@@ -12,7 +14,11 @@ public class ChromeDriverFactory extends DriverAbstract{
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
         options.addArguments("disable-infobars");
-        //options.addArguments("headless");
+        if (webConfig.getProperty("HeadlessMode").equalsIgnoreCase("true")){
+            options.addArguments("--headless");
+        }
+
+
         driver=  new ChromeDriver(options);
         return driver;
     }
