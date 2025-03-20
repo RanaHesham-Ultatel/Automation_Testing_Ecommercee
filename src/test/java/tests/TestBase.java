@@ -16,20 +16,19 @@ import java.time.Duration;
 public class TestBase {
 
     //  WebDriver driver ;
-
     //  Driver driver;
 
     ThreadLocal<Driver> driver;
-// set ,//get
+    // set ,//get
 
     @BeforeClass
     //@Parameters(value = {"browserName"})
-    public void setUp(@Optional("CHROME") String browserName) {
+    public void setUp(/*@Optional("CHROME") String browserName*/) {
 
         driver = new ThreadLocal<>();
         driver.set(new Driver());
         // driver.get().get().get("https://www.google.co.uk/");
-        driver.get().browser().navigateToUrl("https://www.automationexercise.com/");
+        //driver.get().browser().navigateToUrl("https://www.automationexercise.com/");
 
 
         //  driver = new Driver(browserName);

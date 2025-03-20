@@ -34,6 +34,10 @@ public class Driver {
                 .decorate(undecoratedDriver));
         System.out.println("Starting the execution via " + browserDriverType + " driver");
 
+        if (!webConfig.getProperty("BaseURL").isEmpty()){
+            driver.get().navigate().to(webConfig.getProperty("BaseURL"));
+        }
+
 
     }
 
