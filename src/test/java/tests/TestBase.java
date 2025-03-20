@@ -15,37 +15,36 @@ import java.time.Duration;
 
 public class TestBase {
 
-  //  WebDriver driver ;
+    //  WebDriver driver ;
 
-  //  Driver driver;
+    //  Driver driver;
 
-    ThreadLocal <Driver> driver ;
+    ThreadLocal<Driver> driver;
 // set ,//get
 
     @BeforeClass
-    @Parameters(value = {"browserName"})
-    public void setUp (@Optional("CHROME") String browserName) {
+    //@Parameters(value = {"browserName"})
+    public void setUp(@Optional("CHROME") String browserName) {
 
-      driver = new ThreadLocal<>() ;
-      driver.set(new Driver(browserName));
-      driver.get().browser().navigateToUrl("https://www.automationexercise.com/");
-
-
-      //  driver = new Driver(browserName);
-     //   driver.browser().navigateToUrl("https://www.automationexercise.com/");
+        driver = new ThreadLocal<>();
+        driver.set(new Driver());
+        // driver.get().get().get("https://www.google.co.uk/");
+        driver.get().browser().navigateToUrl("https://www.automationexercise.com/");
 
 
-       // driver.browser().scrollToBottom();
+        //  driver = new Driver(browserName);
+        //   driver.browser().navigateToUrl("https://www.automationexercise.com/");
+
+
+        // driver.browser().scrollToBottom();
      /*  driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.element()
                 .hoverOnItem(By.xpath("(//*[@class=\"product-overlay\"])[1]"))
                 .click(By.xpath("(//*[@class=\"btn btn-default add-to-cart\"])[1]"));*/
 
-       // parallelExecutionDriver = new ThreadLocal<>();
-      //  parallelExecutionDriver.set(new Driver(browserName));
-     //   parallelExecutionDriver.get().browser().navigateToUrl("https://www.automationexercise.com/");
-
-
+        // parallelExecutionDriver = new ThreadLocal<>();
+        //  parallelExecutionDriver.set(new Driver(browserName));
+        //   parallelExecutionDriver.get().browser().navigateToUrl("https://www.automationexercise.com/");
 
 
     }
@@ -61,9 +60,8 @@ public class TestBase {
     }*/
 
 
-
     @AfterClass
-    public void tearDown (){
+    public void tearDown() {
         //driver.manage().deleteAllCookies();
         //driver.quit();
         driver.get().QuitDriver();

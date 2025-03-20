@@ -17,7 +17,7 @@ public class RegistrationSuccessPage {
 
     //private WebDriver driver;
 
-    private Driver driver ;
+    private Driver driver;
 
     private WebDriverWait wait;
 
@@ -25,9 +25,9 @@ public class RegistrationSuccessPage {
 
     By accountCreatedMsg = By.xpath("//h2[@data-qa=\"account-created\"]");
 
-    public RegistrationSuccessPage(Driver driver){
-        this.driver=driver;
-        wait = new WebDriverWait(this.driver.get(),Duration.ofSeconds(10));
+    public RegistrationSuccessPage(Driver driver) {
+        this.driver = driver;
+        wait = new WebDriverWait(this.driver.get(), Duration.ofSeconds(10));
 
        /* fluentWait = new FluentWait<>(this.driver.get()).withTimeout(Duration.ofSeconds(10))
                 .pollingEvery(Duration.ofSeconds(10))
@@ -37,16 +37,16 @@ public class RegistrationSuccessPage {
 
     //*************************************** Assertions ******************************************************
     @Step("userCreateAccountSuccessfully")
-    public RegistrationSuccessPage userCreateAccountSuccessfully(){
+    public RegistrationSuccessPage userCreateAccountSuccessfully() {
 
         //fluentWait.until(ExpectedConditions.visibilityOfElementLocated(accountCreatedMsg));
 
         //wait.until(ExpectedConditions.urlToBe("https://www.automationexercise.com/account_created"));
-       //   wait.until(ExpectedConditions.visibilityOf(driver.findElement(accountCreatedMsg)));
+        //   wait.until(ExpectedConditions.visibilityOf(driver.findElement(accountCreatedMsg)));
         wait.until(ExpectedConditions.visibilityOfElementLocated(accountCreatedMsg));
-        Assert.assertEquals(driver.browser().getCurrentUrl(),"https://www.automationexercise.com/account_created");
+        Assert.assertEquals(driver.browser().getCurrentUrl(), "https://www.automationexercise.com/account_created");
         Assert.assertTrue(driver.element().isDisplayed(accountCreatedMsg));
-        Assert.assertEquals(driver.element().getTxtOf(accountCreatedMsg),"ACCOUNT CREATED!");
+        Assert.assertEquals(driver.element().getTxtOf(accountCreatedMsg), "ACCOUNT CREATED!");
         return this;
     }
     //*************************************** Actions ******************************************************

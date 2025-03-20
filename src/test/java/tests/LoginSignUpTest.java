@@ -11,7 +11,7 @@ public class LoginSignUpTest extends TestBase {
 
 
     @Test(priority = 1)
-    public void userCanRegisterSuccessfully (){
+    public void userCanRegisterSuccessfully() {
 
 
         new HomeNavigationBarPage(driver.get()).clickOnLoginSignUPLink()
@@ -24,8 +24,8 @@ public class LoginSignUpTest extends TestBase {
 
     }
 
-    @Test(priority = 2 , dependsOnMethods = "userCanRegisterSuccessfully")
-    public void userCreateAccountSuccessfully(){
+    @Test(priority = 2, dependsOnMethods = "userCanRegisterSuccessfully")
+    public void userCreateAccountSuccessfully() {
 
 
         new CreationAccountPage(driver.get()).fillInCreationAccountForm()
@@ -34,35 +34,33 @@ public class LoginSignUpTest extends TestBase {
         new HomeNavigationBarPage(driver.get()).checkThatTheUserIsNavigatedToHomePage();
 
 
+    }
+
+    @Test(priority = 3, dependsOnMethods = {"userCanRegisterSuccessfully", "userCreateAccountSuccessfully"})
+    public void userCanLoginSuccessfully() {
+
+
+        new HomeNavigationBarPage(driver.get()).clickOnLoginSignUPLink()
+                .fillInLoginEmail(email)
+                .fillInLoginPassword("123456")
+                .clickOnLoginButton()
+                .checkThatTheUserIsNavigatedToHomePage()
+                .checkThatTheLogoutButtonIsDisplayed();
+
 
     }
 
-   @Test (priority = 3 ,dependsOnMethods = {"userCanRegisterSuccessfully","userCreateAccountSuccessfully"})
-    public void userCanLoginSuccessfully (){
-
-
-       new HomeNavigationBarPage(driver.get()).clickOnLoginSignUPLink()
-               .fillInLoginEmail(email)
-               .fillInLoginPassword("123456")
-               .clickOnLoginButton()
-               .checkThatTheUserIsNavigatedToHomePage()
-               .checkThatTheLogoutButtonIsDisplayed();
-
-
-    }
-
-    @Test (priority = 3 ,dependsOnMethods = "userCanLoginSuccessfully")
-    public void userCanLogoutSuccessfully (){
+    @Test(priority = 3, dependsOnMethods = "userCanLoginSuccessfully")
+    public void userCanLogoutSuccessfully() {
 
         new HomeNavigationBarPage(driver.get()).clickOnLogoutLink()
                 .checkThatUserIsNavigatedToLoginSignUpPage();
 
 
-
     }
 
-    @Test (priority = 4 ,dependsOnMethods = "userCanLogoutSuccessfully")
-    public void userCanDeleteAccountSuccessfully (){
+    @Test(priority = 4, dependsOnMethods = "userCanLogoutSuccessfully")
+    public void userCanDeleteAccountSuccessfully() {
 
         new HomeNavigationBarPage(driver.get()).clickOnLoginSignUPLink()
                 .fillInLoginEmail(email)

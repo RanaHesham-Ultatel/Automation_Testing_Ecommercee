@@ -12,6 +12,8 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
 
+import static utilities.properties.PropertiesManager.initializeProperties;
+
 public class TestNGListener implements ITestListener , IExecutionListener {
 
     //private WebDriver driver ;
@@ -21,6 +23,7 @@ public class TestNGListener implements ITestListener , IExecutionListener {
     public void onExecutionStart() {
 
         System.out.println("*********** Welcome To Selenium Framework *********** ");
+        initializeProperties();
     }
     @Override
     public void onExecutionFinish() {

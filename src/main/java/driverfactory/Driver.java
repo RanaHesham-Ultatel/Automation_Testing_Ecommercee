@@ -7,12 +7,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringDecorator;
 import org.openqa.selenium.support.events.WebDriverListener;
 
+import static utilities.properties.PropertiesManager.webConfig;
+
 public class Driver {
 
    //private  WebDriver driver;
     public ThreadLocal<WebDriver> driver ;
 
-    public Driver(String browserDriverType){
+    public Driver(/*String browserDriverType*/){
 
           // driver=chooseBrowserDriver(browserDriverType).startDriver();
     //  WebDriver undecoratedDriver = chooseBrowserDriver(browserDriverType).startDriver();
@@ -21,7 +23,7 @@ public class Driver {
 
      // assert driver!= null;  //assertions from java btrag3 exception lo driver bnull
 
-
+  String browserDriverType =webConfig.getProperty("BrowserType");
         WebDriver undecoratedDriver = chooseBrowserDriver(browserDriverType).startDriver();
         assert undecoratedDriver != null;
 

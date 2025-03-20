@@ -7,7 +7,7 @@ import org.testng.Assert;
 
 public class CreationAccountPage {
 
-   //private WebDriver driver;
+    //private WebDriver driver;
     private Driver driver;
 
     By maleRadioButton = By.id("id_gender1");
@@ -23,12 +23,12 @@ public class CreationAccountPage {
     By newSletterCheckBox = By.id("newsletter");
     By specialOffersCheckBox = By.id("optin");
 
-    By firstNameTextField= By.id("first_name");
-    By lastNameTextField= By.id("last_name");
+    By firstNameTextField = By.id("first_name");
+    By lastNameTextField = By.id("last_name");
 
-    By companyTextField= By.id("company");
+    By companyTextField = By.id("company");
 
-    By addressOneTextField= By.id("address1");
+    By addressOneTextField = By.id("address1");
 
     By addressTwoTextField = By.id("address2");
 
@@ -47,15 +47,14 @@ public class CreationAccountPage {
     By enterAccountInfoLabel = By.xpath("(//h2[@class=\"title text-center\"])[1]");
 
 
-    public CreationAccountPage(Driver driver){
-        this.driver=driver;
+    public CreationAccountPage(Driver driver) {
+        this.driver = driver;
     }
-
 
 
     //*************************************** Assertions ******************************************************
     @Step("checkthatTheUserIsNavigatedToCreationAccountPageSuccessfully")
-    public CreationAccountPage checkthatTheUserIsNavigatedToCreationAccountPageSuccessfully(){
+    public CreationAccountPage checkthatTheUserIsNavigatedToCreationAccountPageSuccessfully() {
         Assert.assertTrue(driver.element().isDisplayed(enterAccountInfoLabel));
         return this;
     }
@@ -71,125 +70,145 @@ public class CreationAccountPage {
         }
         return this;
     }
+
     @Step("fillNameTextField")
-    public CreationAccountPage fillNameTextField(String name){
-        driver.element().fillTextField(nameTextField,name);
+    public CreationAccountPage fillNameTextField(String name) {
+        driver.element().fillTextField(nameTextField, name);
         return this;
     }
+
     @Step("fillEmailTextField")
-    public CreationAccountPage fillEmailTextField(String email){
+    public CreationAccountPage fillEmailTextField(String email) {
 
-        driver.element().fillTextField(emailTextField,email);
+        driver.element().fillTextField(emailTextField, email);
         return this;
     }
+
     @Step("fillPasswordTextField")
-    public CreationAccountPage fillPasswordTextField(String password){
-        driver.element().fillTextField(passwordTextField,password);
+    public CreationAccountPage fillPasswordTextField(String password) {
+        driver.element().fillTextField(passwordTextField, password);
         return this;
     }
+
     @Step("selectFromDaysDropDown")
-    public CreationAccountPage selectFromDaysDropDown (String day){
+    public CreationAccountPage selectFromDaysDropDown(String day) {
 
-        driver.element().selectFromDropDownByVisibleText(daysDropDown,day);
+        driver.element().selectFromDropDownByVisibleText(daysDropDown, day);
         return this;
 
     }
+
     @Step("electFromMonthDropDown")
-    public CreationAccountPage selectFromMonthDropDown (String month){
-        driver.element().selectFromDropDownByVisibleText(monthsDropDown,month);
+    public CreationAccountPage selectFromMonthDropDown(String month) {
+        driver.element().selectFromDropDownByVisibleText(monthsDropDown, month);
         return this;
 
     }
+
     @Step("selectFromYearDropDown")
-    public CreationAccountPage selectFromYearDropDown (String year){
+    public CreationAccountPage selectFromYearDropDown(String year) {
 
-        driver.element().selectFromDropDownByVisibleText(yearsDropDown,year);
+        driver.element().selectFromDropDownByVisibleText(yearsDropDown, year);
         return this;
 
     }
+
     @Step("selectNewSletterCheckBo")
-    public CreationAccountPage selectNewSletterCheckBox (){
+    public CreationAccountPage selectNewSletterCheckBox() {
         driver.element().click(newSletterCheckBox);
         return this;
     }
+
     @Step("selectSpecialOffersCheckBox")
-    public CreationAccountPage selectSpecialOffersCheckBox (){
+    public CreationAccountPage selectSpecialOffersCheckBox() {
 
         driver.element().click(specialOffersCheckBox);
         return this;
     }
+
     @Step("fillFirstNameTextField")
-    public CreationAccountPage fillFirstNameTextField (String firstName){
-        driver.element().fillTextField(firstNameTextField,firstName);
+    public CreationAccountPage fillFirstNameTextField(String firstName) {
+        driver.element().fillTextField(firstNameTextField, firstName);
         return this;
 
     }
+
     @Step("fillLastNameTextField")
-    public CreationAccountPage fillLastNameTextField (String lastName){
-        driver.element().fillTextField(lastNameTextField,lastName);
+    public CreationAccountPage fillLastNameTextField(String lastName) {
+        driver.element().fillTextField(lastNameTextField, lastName);
         return this;
 
     }
+
     @Step("fillCompanyTextField")
-    public CreationAccountPage fillCompanyTextField (String company){
-        driver.element().fillTextField(companyTextField,company);
+    public CreationAccountPage fillCompanyTextField(String company) {
+        driver.element().fillTextField(companyTextField, company);
         return this;
 
     }
-   @Step("fillAddressOneTextField")
-    public CreationAccountPage fillAddressOneTextField (String address){
-        driver.element().fillTextField(addressOneTextField,address);
+
+    @Step("fillAddressOneTextField")
+    public CreationAccountPage fillAddressOneTextField(String address) {
+        driver.element().fillTextField(addressOneTextField, address);
         return this;
 
     }
+
     @Step("fillAddressTwoTextField")
-    public CreationAccountPage fillAddressTwoTextField (String address){
-        driver.element().fillTextField(addressTwoTextField,address);
+    public CreationAccountPage fillAddressTwoTextField(String address) {
+        driver.element().fillTextField(addressTwoTextField, address);
         return this;
 
     }
+
     @Step("selectFromCountryDropDown")
-    public CreationAccountPage selectFromCountryDropDown (String country){
+    public CreationAccountPage selectFromCountryDropDown(String country) {
 
-        driver.element().selectFromDropDownByVisibleText(countriesDropDown,country);
+        driver.element().selectFromDropDownByVisibleText(countriesDropDown, country);
         return this;
 
     }
+
     @Step("fillStateTextField")
-    public CreationAccountPage fillStateTextField (String state){
-        driver.element().fillTextField(stateTextField,state);
+    public CreationAccountPage fillStateTextField(String state) {
+        driver.element().fillTextField(stateTextField, state);
         return this;
 
     }
+
     @Step("fillCityTextField")
-    public CreationAccountPage fillCityTextField (String city){
-        driver.element().fillTextField(cityTextField,city);
+    public CreationAccountPage fillCityTextField(String city) {
+        driver.element().fillTextField(cityTextField, city);
         return this;
 
     }
+
     @Step("fillZipCodeTextField")
-    public CreationAccountPage fillZipCodeTextField (String zipCode){
-        driver.element().fillTextField(zipCodeTextField,zipCode);
+    public CreationAccountPage fillZipCodeTextField(String zipCode) {
+        driver.element().fillTextField(zipCodeTextField, zipCode);
         return this;
 
     }
+
     @Step("fillMobileNumberTextField")
-    public CreationAccountPage fillMobileNumberTextField (String mobileNumber){
-        driver.element().fillTextField(mobileNumberTextField,mobileNumber);
+    public CreationAccountPage fillMobileNumberTextField(String mobileNumber) {
+        driver.element().fillTextField(mobileNumberTextField, mobileNumber);
         return this;
 
 
     }
+
     @Step("clickOnCreateAccountButton")
-    public RegistrationSuccessPage clickOnCreateAccountButton (){
+    public RegistrationSuccessPage clickOnCreateAccountButton() {
 
         driver.element().scrollToElementUsingJs(createAccountButton);
         driver.element().click(createAccountButton);
         return new RegistrationSuccessPage(driver);
 
     }
+
     @Step("fillInCreationAccountForm")
-    public RegistrationSuccessPage fillInCreationAccountForm(){
+    public RegistrationSuccessPage fillInCreationAccountForm() {
         selectGenderRadioButton("female");
         fillPasswordTextField("123456");
         selectFromDaysDropDown("29");
